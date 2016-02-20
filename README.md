@@ -1,0 +1,26 @@
+# ShoeStoreTest
+shoe store example using selenium and java
+go to http://shoestore-manheim.rhcloud.com/definition
+to get the acceptance criteria
+
+       /**
+         * Created by allwinkie on 2/18/16.
+         * testplan Accptance Criteria 1
+         * 1) have firefox open home page
+         * 2) open month
+         * 3) check if there are any shoes - if not assert error
+         * 4)check each shoe for text,image,name,brand - if not assert error
+         * 5) the program loops through all the months
+         * 6) - I handeled the java exception for the assertion error( is supposed to fail) 
+         * to make a clean execution
+         *
+         */
+          /**
+         * Created by allwinkie on 2/18/16.
+         * testplan Accptance Criteria 2
+         * 1) have firefox open each page with the email entry
+         * 2) add email
+         * 3) check to see if the flash message is sent- if not assert error
+         *
+         */
+  
