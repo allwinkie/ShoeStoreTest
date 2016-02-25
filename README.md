@@ -13,6 +13,7 @@ to get the acceptance criteria
          * 5) the program loops through all the months
          * 6) - I handeled the java exception for the assertion error( is supposed to fail) 
          * to make a clean execution
+         * 7) added main to make executable, and added log4j, testNG
          * --- test dynamically determines number of shoes and checks each, because of changing stock
          */
           /**
@@ -21,6 +22,7 @@ to get the acceptance criteria
          * 1) have firefox open each page with the email entry
          * 2) add email
          * 3) check to see if the flash message is sent- if not assert error
+         * 4) added main to make executable, and added log4j, testNG
          * if new page is created with same email box , add url to list ( in real world would be on a csv and read) 
          *
          */
