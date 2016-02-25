@@ -1,30 +1,43 @@
 package bobwebdriver.com;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created by allwinkie on 2/18/16.
  * Manheim test
  */
 public class ShoeStoreTest1 {
+    static final Logger logger = Logger.getLogger(ShoeStoreTest1.class);
+
+    public static void main(String[] args) {
+        TestListenerAdapter tla = new TestListenerAdapter();
+        TestNG testng = new TestNG();
+        testng.setTestClasses(new Class[]{ShoeStoreTest1.class});
+        testng.addListener(tla);
+        testng.run();
+    }
 
     @Test
     public void initiateWebDriver() {
-        //      AcceptanceStoryTwo();
+        //  final Logger logger = Logger.getLogger(ShoeStoreTest1.class);
+        //  BasicConfigurator.configure();
+
         AcceptanceStoryOne();
     }
 
     private void AcceptanceStoryOne() {
+
         /**
          * Created by allwinkie on 2/18/16.
          * testplan Accptance Criteria 1
@@ -32,8 +45,9 @@ public class ShoeStoreTest1 {
          * 2) open month
          * 3) check if there are any shoes - if not assert error
          * 4)check each shoe for text,image,name,brand - if not assert error
-         *
+         * 5) go through all 12 months - repeat steps 2,3,4
          */
+
         String monthsItreation = "";
         WebDriver firefox;
         firefox = new FirefoxDriver();
@@ -49,7 +63,7 @@ public class ShoeStoreTest1 {
             firefox.navigate().to(loopUrl);
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -104,18 +118,23 @@ public class ShoeStoreTest1 {
 
 
         } catch (Error e) {
-            System.out.println(" shoes are missing in " + months);
+            //   System.out.println(" shoes are missing in " + months);
+            //Assert.fail(" shoes are missing in " + months);
+            logger.error(" shoes are missing in " + months);
             e.printStackTrace();
+            //     logger.error(" stack trace",e);
         }
     }
 
     private void checkAssertStringsAreNull(String months, String check, String Name) {
         try {
             //  Assert.(check);
-            assertEquals(false, check.contains("null"));
+            Assert.assertEquals(false, check.contains("null"));
         } catch (Exception e) {
-            System.out.println(Name + " is missing " + months);
-            e.printStackTrace();
+            //       System.out.println(Name + " is missing " + months);
+            logger.error(Name + " is missing " + months);
+            //      e.printStackTrace();
+            logger.error(" stack trace ", e);
         }
     }
 

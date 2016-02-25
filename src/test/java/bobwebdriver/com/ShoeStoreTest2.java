@@ -1,22 +1,37 @@
 package bobwebdriver.com;
 
-import org.junit.Test;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+
 
 /**
  * Created by allwinkie on 2/20/16.
  */
 public class ShoeStoreTest2 {
+    static final Logger logger = Logger.getLogger(ShoeStoreTest2.class);
     @Test
+
+    public static void main(String[] args) {
+        TestListenerAdapter tla = new TestListenerAdapter();
+        TestNG testng = new TestNG();
+        testng.setTestClasses(new Class[]{ShoeStoreTest2.class});
+        testng.addListener(tla);
+        testng.run();
+    }
+
     public void initiateWebDriver() {
+
         AcceptanceStoryTwo();
 
     }
@@ -24,10 +39,12 @@ public class ShoeStoreTest2 {
     private void checkAssertStringsAreNull(String months, String check, String Name) {
         try {
             //  Assert.(check);
-            assertEquals(false, check.contains("null"));
+            //   assertEquals(false, check.contains("null"));
+            Assert.assertEquals(false, check.contains("null"));
         } catch (Exception e) {
             System.out.println(Name + " is missing " + months);
             e.printStackTrace();
+            logger.error(Name + " is missing " + months);
         }
     }
 
@@ -59,12 +76,13 @@ public class ShoeStoreTest2 {
     private void AcceptanceStoryTwo() {
         /**
          * Created by allwinkie on 2/18/16.
-         * testplan Accptance Criteria
+         * testplan Acceptance Criteria
          * 1) have firefox open each page with the email entry
          * 2) add email
          * 3) check to see if the flash message is sent- if not assert error
          *
          */
+
 
         WebDriver firefox;
         firefox = new FirefoxDriver();
@@ -82,7 +100,7 @@ public class ShoeStoreTest2 {
             firefox.navigate().to(linkInUse);
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
 
