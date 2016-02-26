@@ -3,6 +3,12 @@ shoe store example using selenium and java
 go to http://shoestore-manheim.rhcloud.com/definition
 to get the acceptance criteria
 
+
+        /**
+         * I had problems getting this to work in eclipse- i use intelej
+         * git clone https://github.com/allwinkie/ShoeStoreTest.git
+         * then import a local maven project in eclipse
+         */
        /**
          * Created by allwinkie on 2/18/16.
          * testplan Accptance Criteria 1
@@ -16,6 +22,7 @@ to get the acceptance criteria
          * 7) added main to make executable, and added log4j, testNG
          * --- test dynamically determines number of shoes and checks each, because of changing stock
          */
+        
           /**
          * Created by allwinkie on 2/18/16.
          * testplan Accptance Criteria 2
