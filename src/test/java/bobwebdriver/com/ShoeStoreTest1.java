@@ -1,5 +1,6 @@
 package bobwebdriver.com;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,9 +31,8 @@ public class ShoeStoreTest1 {
 
     @Test
     public void initiateWebDriver() {
-        //  final Logger logger = Logger.getLogger(ShoeStoreTest1.class);
-        //  BasicConfigurator.configure();
-
+        final Logger logger = Logger.getLogger(ShoeStoreTest1.class);
+        BasicConfigurator.configure();
         AcceptanceStoryOne();
     }
 
